@@ -25,8 +25,16 @@ public class logica {
     
     */
     public int buscar(int [] arreglo, int llave){
+        int position = -1;
         
-        return -1;
+        for (int i = 0; i < arreglo.length; i++) {
+            
+            if (arreglo[i]==llave) {
+                position = i;                
+            }
+        }
+        
+        return position;
     }
     
     
@@ -49,15 +57,81 @@ public class logica {
     */
     
     public boolean fechavalida(int year, int mes, int dia){
-        return false;
+        boolean answer = false;
+        
+        if (year >= 1 && year <= 5000) {
+            if (mes >= 1 && mes <= 12 ) {
+                if (mes == 1){
+                    if (dia>=1 && dia <=31) {
+                        answer = true;
+                    }
+                }else if (mes == 2) {
+                    if (dia >=1 && dia <= 28) {
+                        answer = true;
+                    }else if (dia == 29) {
+                        if (year%400 == 0 || (year%4 == 0 && year%100 != 0)) {
+                            answer = true;
+                        }
+                    }
+                }else if (mes == 3) {
+                    if (dia>=1 && dia <=31) {
+                        answer = true;
+                    }
+                }else if (mes == 4) {
+                    if (dia>=1 && dia <=30) {
+                        answer = true;
+                    }
+                }else if (mes == 5) {
+                    if (dia>=1 && dia <=31) {
+                        answer = true;
+                    }
+                }else if (mes == 6) {
+                    if (dia>=1 && dia <=30) {
+                        answer = true;
+                    }
+                }else if (mes == 7) {
+                    if (dia>=1 && dia <=31) {
+                        answer = true;
+                    }
+                }else if (mes == 8) {
+                    if (dia>=1 && dia <=31) {
+                        answer = true;
+                    }
+                }else if (mes == 9) {
+                    if (dia>=1 && dia <=30) {
+                        answer = true;
+                    }
+                }else if (mes == 10) {
+                    if (dia>=1 && dia <=31) {
+                        answer = true;
+                    }
+                }else if (mes == 11) {
+                    if (dia>=1 && dia <=30) {
+                        answer = true;
+                    }
+                }else if (mes == 12) {
+                    if (dia>=1 && dia <=31) {
+                        answer = true;
+                    }
+                }
+            }
+        }
+        
+        return answer;
     }
     
     /*
     La siguiente funcion tiene que validar si un numero es primo.
     Retornara True si el numero es primo y false si no lo es
     */
-    public boolean esPrimo(int year){
-        return false;
+    public boolean esPrimo(int numero){
+       boolean primo = true;
+        
+        for (int i = 2; i <= numero/2; i++) {
+            if (numero%i == 0) primo=false;
+            
+        }
+        return primo;
     }
     
     

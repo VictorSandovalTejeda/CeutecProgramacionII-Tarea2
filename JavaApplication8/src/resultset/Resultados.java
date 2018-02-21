@@ -5,6 +5,9 @@
  */
 package resultset;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author diego
@@ -30,7 +33,23 @@ public class Resultados {
     public int [] arreglosetResultSetUno(){
         Estudiantes es = new Estudiantes();
         rs1 = es.getTabla();
+        int contador = 0;
         int [] arr = null;
+        int i = 0;
+        try {
+            while (rs1.next()){
+                contador++;
+            }
+            arr = new int[contador];
+            while (rs1.next()){
+            arr[i] = rs1.getInt(3);
+            i++;    
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Resultados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         return arr;
     }
     
@@ -49,6 +68,22 @@ public class Resultados {
         Estudiantes es = new Estudiantes();
         rs1 = es.getTabla();
         int [] arr = null;
+        int contador = 0;
+        int i = 0;
+        try {
+            while (rs1.next()){
+                contador++;
+            }
+            arr = new int[contador];
+            while (rs1.next()){
+                if (rs1.getInt(3) >= 65) {
+                    arr[i] = rs1.getInt(3);
+                    i++;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Resultados.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return arr;
     }
     
